@@ -1,0 +1,10 @@
+.player-bar {
+}
+
+.audio-control-button {
+	cursor: pointer;
+}
+
+#app {
+	padding-bottom: 80px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>NeuroFlow Coding Challenge - Audio Files</title>
+	<meta name="description" content="Campfire Live Controller">
+	<meta name="author" content="falldeaf">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+	<link type="text/css" rel="stylesheet" href="css/listing.css"/>
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="display-4"> <img src="https://www.neuroflowsolution.com/wp-content/uploads/2017/11/White-NeuroFlow-Logo-398x67-238x40.png"> coding challenge</h1>
+			<p class="lead"> Audio File Listing </p>
+			<hr class="my-4">
+			<p>List of Audio files for patients</p>
+
+		</div>
+
+		<div id="app">
+
+			<template>
+				<div>
+					<layout :docs="docs">
+						<b-table  ref="table" show-empty striped hover responsive :items="items" :current-page="currentPage" :per-page="perPage" :filter="filter" :fields="fields" @row-clicked="playItem">
+							<template v-slot:cell(play)="data">
+								<b-button size="sm" v-on:click="playItem(data.item)"><i class="fas fa-play"></i></b-button>
+							</template>
+						</b-table>
+					</layout>
+				</div>
+			</template>
+		</div>
+	</div>
+
+	<nav class="navbar fixed-bottom navbar-dark bg-dark player-bar">
+		<b-nav-item id="aprev" class="audio-control-button"> <i class="fas fa-step-backward"></i> </b-nav-item>
+		<b-nav-item id="arewind" class="audio-control-button"> <i class="fas fa-backward"></i> </b-nav-item>
+		<b-nav-item id="aforward" class="audio-control-button"> <i class="fas fa-forward"></i> </b-nav-item>
+		<b-nav-item id="anext" class="audio-control-button"> <i class="fas fa-step-forward"></i> </b-nav-item>
+		<span  id="atitle" class="audio-title"> --- </span>
+		<audio id="aplayer" controls>
+			<source src="" type="audio/mpeg">
+		  Your browser does not support the audio.
+		  </audio>
+	</nav>
+
+	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+	<script src="https://kit.fontawesome.com/d236e49b89.js" crossorigin="anonymous"></script>
+
+	<script src="/js/audio.js"></script> <!-- Inlude audio class first, class defs aren't foisted -->
+	<script src="/js/view.js"></script>
+	<script src="/js/api.js"></script>
+
+</body>
+</html>

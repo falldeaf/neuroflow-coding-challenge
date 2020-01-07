@@ -1,0 +1,22 @@
+{
+  "name": "neuroflow-coding-challenge",
+  "version": "1.0.0",
+  "description": "Neuroflow Coding Challenge 1/6/2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falldeaf/neuroflow-coding-challenge.git"
+  },
+  "author": "Tom Mardis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/falldeaf/neuroflow-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/falldeaf/neuroflow-coding-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
