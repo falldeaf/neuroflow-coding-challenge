@@ -46,6 +46,13 @@ window.onload = () => {
 				console.log("play an item (play button clicked)")
 				console.log(item)
 				window.audio_player.play(item.id);
+			},
+			audioError: function(err_message) {
+				this.$bvToast.toast(err_message, {
+					title: `Audio Playback Error!`,
+					variant: "danger",
+					solid: true
+				})
 			}
 		}
 	})
@@ -53,7 +60,7 @@ window.onload = () => {
 }
 
 function initPlayer() {
-	window.audio_player = new AudioPlayer(vue.items, document.getElementById('aplayer'), document.getElementById('atitle'));
+	window.audio_player = new AudioPlayer(vue.items, document.getElementById('aplayer'), document.getElementById('atitle'), vue.audioError);
 	document.getElementById("aprev"   ).addEventListener("click", function() { window.audio_player.previous() });
 	document.getElementById("arewind" ).addEventListener("click", function() { window.audio_player.rewind()   });
 	document.getElementById("aforward").addEventListener("click", function() { window.audio_player.forward()   });
