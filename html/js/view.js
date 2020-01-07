@@ -13,6 +13,7 @@ window.onload = () => {
 					component: 'bTable'
 				},
 				items: [{name:"test"}],
+				current_item: {},
 				currentPage: 1,
 				perPage: 25,
 				filter: null,
@@ -36,9 +37,13 @@ window.onload = () => {
 				});
 			},
 			showItem: function(record, index){
+				console.log("show an item (row clicked)")
 				console.log(record)
+				vue.current_item = record;
+				this.$refs['detail-modal'].show();
 			},
 			playItem: function(item) {
+				console.log("play an item (play button clicked)")
 				console.log(item)
 				window.audio_player.play(item.id);
 			}

@@ -27,18 +27,34 @@
 			<template>
 				<div>
 					<layout :docs="docs">
-						<b-table  ref="table" show-empty striped hover responsive :items="items" :current-page="currentPage" :per-page="perPage" :filter="filter" :fields="fields" @row-clicked="playItem">
+						<b-table  ref="table" show-empty striped hover responsive :items="items" :current-page="currentPage" :per-page="perPage" :filter="filter" :fields="fields" @row-clicked="showItem">
 							<template v-slot:cell(play)="data">
 								<b-button size="sm" v-on:click="playItem(data.item)"><i class="fas fa-play"></i></b-button>
 							</template>
 						</b-table>
 					</layout>
 				</div>
+
+				<b-modal ref="detail-modal" ok-only id="model1" static="true" centered title="Audio File Details">
+
+					<b-list-group>
+						<b-list-group-item href="#"><b>Audio Title:</b> <span class="item_text">{{ current_item.label }}</span> </b-list-group-item>
+						<b-list-group-item href="#"><b>Category:</b>    <span class="item_text">{{ current_item.category }}</span></b-list-group-item>
+						<b-list-group-item href="#"><b>Speaker:</b>     <span class="item_text">{{ current_item.speaker }}</span></b-list-group-item>
+					</b-list-group>
+				
+					<p class="card-text mt-2">
+						<span>{{ current_item.description }}</span>
+					</p>
+
+				</b-modal>
+
 			</template>
 		</div>
 	</div>
 
 	<nav class="navbar fixed-bottom navbar-dark bg-dark player-bar">
+		<b-navbar toggleable="lg" type="dark" variant="info"></b-navbar>
 		<b-nav-item id="aprev" class="audio-control-button"> <i class="fas fa-step-backward"></i> </b-nav-item>
 		<b-nav-item id="arewind" class="audio-control-button"> <i class="fas fa-backward"></i> </b-nav-item>
 		<b-nav-item id="aforward" class="audio-control-button"> <i class="fas fa-forward"></i> </b-nav-item>

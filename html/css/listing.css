@@ -8,3 +8,7 @@
 #app {
 	padding-bottom: 80px;
 }
+
+.item_text {
+	float: right;
+}
